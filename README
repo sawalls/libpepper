@@ -1,0 +1,12 @@
+ABOUT:
+libpepper is a libary for creating games. Mostly, it is a collection of the
+work that we assumed we would be remaking for most of our games. So far,
+it consists of the following main components, all within the Pepper
+namespace:
+	-Geometry
+	-Video
+	-Game
+
+DIRECTORIES:
+	src/	-source files
+	test/	-test suites
