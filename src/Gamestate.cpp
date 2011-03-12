@@ -1,32 +1,29 @@
 #include "Gamestate.h"
+#include <SDL/SDL.h>
+#include <vector>
+
+using namespace std;
 
 Gamestate::Gamestate(){
 }
 
-virtual void Gamestate::getInput(){
-	vector<Entities>::iterator inputIterator;
-	for(inputIterator = Ents.begin(); inputIterator != Ents.end(); inputIterator++){
-		inputIterator->DoLogic();
-	}
-
+void Gamestate::getInput(){
 }
 
-virtual void Gamestate::doLogic(){
-	vector<Entities>::iterator logicIterator;
+void Gamestate::doLogic(){
+	vector<Entity>::iterator logicIterator;
 	for(logicIterator = Ents.begin(); logicIterator != Ents.end(); logicIterator++){
 		logicIterator->DoLogic();
 	}
 
 }
 
-virtual void Gamestate::Render(){
-	vector<Entities>::iterator renderIterator;
+void Gamestate::Render(){
+	vector<Entity>::iterator renderIterator;
 	for(renderIterator = Ents.begin(); renderIterator != Ents.end(); renderIterator++){
-		renderIterator->DoLogic();
+		renderIterator->Render();
 	}
-
 }
 
-Gamestate::~gamestate{
-
+Gamestate::~Gamestate(){
 }

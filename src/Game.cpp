@@ -1,5 +1,7 @@
 #include "Game.h"
-#include <stdlib>
+#include <SDL/SDL.h>
+#include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -16,9 +18,9 @@ int Game::Execute(){
 	}
 	running = true;
 	while(running){
-		Gamestacks.top().getInput();
-		Gamestacks.top().doLogic();
-		Gamestacks.top().Render();
+		Gamestates.top().getInput();
+		Gamestates.top().doLogic();
+		Gamestates.top().Render();
 	}
 	return 0;
 }

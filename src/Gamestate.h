@@ -1,16 +1,17 @@
-#include <SDL/SDLl.h>
+#include <SDL/SDL.h>
 #include <vector>
+#include "Entity.h"
 
+#ifndef GAMESTATE_H
+#define GAMESTATE_H
 class Gamestate{
-	private:
-	
 	public:
-	vector<Entities> Ents //This should contain all the stuff we want to do logic on
+	std::vector<Entity> Ents; //This should contain all the stuff we want to do logic on
 	public:
 	Gamestate();
 	virtual void getInput();
 	virtual void doLogic();
 	virtual void Render();
-	~Gamestate();
-
+	virtual ~Gamestate();
 };
+#endif
