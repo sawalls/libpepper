@@ -1,8 +1,10 @@
 #include "Gamestate.h"
-#include <SDL/SDL.h>
-#include <vector>
+#include "Entity.h"
+#include <algorithm>
+#include <functional>
 
 using namespace std;
+using namespace Pepper;
 
 Gamestate::Gamestate(){
 }
@@ -10,19 +12,14 @@ Gamestate::Gamestate(){
 void Gamestate::getInput(){
 }
 
-void Gamestate::doLogic(){
-	vector<Entity>::iterator logicIterator;
-	for(logicIterator = Ents.begin(); logicIterator != Ents.end(); logicIterator++){
-		logicIterator->DoLogic();
-	}
-
+void Gamestate::doLogic()
+{
+	for_each(entities.begin(), entities.end(), mem_fun(&Entity::DoLogic));
 }
 
-void Gamestate::Render(){
-	vector<Entity>::iterator renderIterator;
-	for(renderIterator = Ents.begin(); renderIterator != Ents.end(); renderIterator++){
-		renderIterator->Render();
-	}
+void Gamestate::Render()
+{
+	for_each(entities.begin(), entities.end(), mem_fun(&Entity::Render));
 }
 
 Gamestate::~Gamestate(){

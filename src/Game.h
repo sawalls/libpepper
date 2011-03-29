@@ -1,18 +1,27 @@
-#include "Gamestate.h"
+#ifndef GAME_H
+#define GAME_H
+
 #include <SDL/SDL.h>
-#include <stack> //Is this the right statement?
+#include <stack>
 
-class Game{
+namespace Pepper
+{
+
+// Forward declaration
+class Gamestate;
+
+class Game
+{
 private:
-
-public:
 	bool running;
 	SDL_Surface* Surf_Display; 
-	std::stack<Gamestate> Gamestates;
+	std::stack<Gamestate*> Gamestates;
 public:
 	Game();
-	int Execute();
-	~Game();
-	
+	virtual int Execute();
+	virtual ~Game();
+};	//Game
 
-};
+};	//Pepper
+
+#endif

@@ -1,12 +1,20 @@
-GAEMU : main.o Game.o Gamestate.o Entity.o
-	g++ -lSDL -o GAEMU main.o Game.o Gamestate.o Entity.o
-main.o : main.cpp Game.h
-	g++ -c main.cpp 
-Game.o : Game.cpp Game.h Gamestate.h
-	g++ -c Game.cpp
-Gamestate.o : Gamestate.cpp Gamestate.h Entity.h
-	g++ -c Gamestate.cpp
-Entity.o : Entity.cpp Entity.h
-	g++ -c Entity.cpp
+PROGS=main
+MAIN_OBJS=main.o Game.o Gamestate.o Entity.o
+CXXFLAGS+=-O3
+LDFLAGS+=-lSDL
+
+all: ${PROGS}
+
+main: ${MAIN_OBJS}
+	$(CXX) $(LDFLAGS) $^ -o $@
+
+main.o: Game.h
+
+Game.o: Game.h Gamestate.h
+
+Gamestate.o: Gamestate.h Entity.h
+
+Entity.o: Entity.h
+
 clean:
-	rm GAEMU main.o Game.o Gamestate.o Entity.o
+	rm ${PROGS} ${MAIN_OBJS}

@@ -1,5 +1,7 @@
 #include "Entity.h"
 
+using namespace Pepper;
+
 Entity::Entity(){
 }
 void Entity::DoLogic(){
